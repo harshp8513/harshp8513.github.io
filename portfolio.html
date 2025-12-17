@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Harsh Navapara | Senior Flutter Developer</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --primary: #4f46e5;
+      --secondary: #0f172a;
+      --light: #f8fafc;
+      --gray: #64748b;
+      --card: #ffffff;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Poppins', sans-serif;
+      background: var(--light);
+      color: var(--secondary);
+      line-height: 1.6;
+    }
+
+    a {
+      color: var(--primary);
+      text-decoration: none;
+    }
+
+    .container {
+      width: 90%;
+      max-width: 1100px;
+      margin: auto;
+    }
+
+    header {
+      background: linear-gradient(135deg, #4f46e5, #6366f1);
+      color: #fff;
+      padding: 80px 0;
+    }
+
+    header h1 {
+      font-size: 2.8rem;
+      font-weight: 700;
+    }
+
+    header p {
+      margin-top: 10px;
+      font-size: 1.1rem;
+      max-width: 700px;
+    }
+
+    section {
+      padding: 70px 0;
+    }
+
+    .section-title {
+      font-size: 2rem;
+      margin-bottom: 40px;
+      text-align: center;
+      position: relative;
+    }
+
+    .section-title::after {
+      content: '';
+      width: 60px;
+      height: 4px;
+      background: var(--primary);
+      display: block;
+      margin: 10px auto 0;
+      border-radius: 2px;
+    }
+
+    .about p {
+      max-width: 900px;
+      margin: auto;
+      text-align: center;
+      color: var(--gray);
+    }
+
+    .skills-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 20px;
+    }
+
+    .skill-card {
+      background: var(--card);
+      padding: 25px;
+      border-radius: 12px;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.05);
+    }
+
+    .skill-card h3 {
+      margin-bottom: 10px;
+      color: var(--primary);
+    }
+
+    .projects {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 25px;
+    }
+
+    .project-card {
+      background: var(--card);
+      padding: 25px;
+      border-radius: 14px;
+      box-shadow: 0 12px 30px rgba(0,0,0,0.06);
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    .project-card h3 {
+      margin-bottom: 10px;
+      color: var(--secondary);
+    }
+
+    .project-card p {
+      color: var(--gray);
+      font-size: 0.95rem;
+    }
+
+    .project-links {
+      margin-top: 15px;
+    }
+
+    .project-links a {
+      margin-right: 10px;
+      font-size: 0.9rem;
+    }
+
+    .experience, .education {
+      max-width: 900px;
+      margin: auto;
+    }
+
+    .timeline-item {
+      background: var(--card);
+      padding: 25px;
+      border-radius: 12px;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.05);
+      margin-bottom: 20px;
+    }
+
+    footer {
+      background: #020617;
+      color: #cbd5f5;
+      text-align: center;
+      padding: 40px 0;
+    }
+
+    footer a {
+      color: #a5b4fc;
+    }
+
+    @media (max-width: 768px) {
+      header h1 {
+        font-size: 2.2rem;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <div class="container">
+      <h1>Harsh Navapara</h1>
+      <p>Senior Flutter Developer with 6+ years of experience building scalable, high-quality mobile applications for iOS and Android.</p>
+      <p>Email: <a href="mailto:dev.harsh2502@gmail.com" style="color:#fff; text-decoration:underline;">dev.harsh2502@gmail.com</a></p>
+    </div>
+  </header>
+
+  <section class="about">
+    <div class="container">
+      <h2 class="section-title">About Me</h2>
+      <p>
+        I am a Senior Flutter Developer specializing in creating pixel-perfect, high-performance mobile applications.
+        I have extensive experience with Flutter, Dart, Firebase, REST APIs, and modern state management solutions.
+        Currently working as a full-time freelancer and open to opportunities across all time zones.
+      </p>
+    </div>
+  </section>
+
+  <section>
+    <div class="container">
+      <h2 class="section-title">Skills & Expertise</h2>
+      <div class="skills-grid">
+        <div class="skill-card">
+          <h3>Mobile Development</h3>
+          <p>Flutter, Dart, Xamarin (iOS, Android), MVVM Architecture</p>
+        </div>
+        <div class="skill-card">
+          <h3>State Management</h3>
+          <p>Provider, Riverpod, Flutter Hooks, GetX</p>
+        </div>
+        <div class="skill-card">
+          <h3>Backend & APIs</h3>
+          <p>REST APIs, Firebase, Firestore, ASP.NET Core</p>
+        </div>
+        <div class="skill-card">
+          <h3>Tools & Platforms</h3>
+          <p>Git, GitHub, Bitbucket, Trello, JIRA, Postman</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="container">
+      <h2 class="section-title">Featured Projects</h2>
+      <div class="projects">
+
+        <div class="project-card">
+          <h3>Mazoom Scanner App</h3>
+          <p>Electronic invitation app with RSVP, QR codes, and WhatsApp sharing.</p>
+          <div class="project-links">
+            <a href="https://apps.apple.com/sa/app/mazoom-invitations/id1604235156" target="_blank">iOS</a>
+            <a href="https://play.google.com/store/apps/details?id=com.app.mazoom&hl=en_US" target="_blank">Android</a>
+          </div>
+        </div>
+
+        <div class="project-card">
+          <h3>Here Is What I Like</h3>
+          <p>Social discovery app available on both App Store and Play Store.</p>
+          <div class="project-links">
+            <a href="https://apps.apple.com/in/app/here-is-what-i-like/id6446192665" target="_blank">iOS</a>
+            <a href="https://play.google.com/store/apps/details?id=com.hivil.hivil&hl=en&gl=US" target="_blank">Android</a>
+          </div>
+        </div>
+
+        <div class="project-card">
+          <h3>Colorex App</h3>
+          <p>eCommerce app for trade-quality construction and painting products.</p>
+          <div class="project-links">
+            <a href="https://colorex.co.nz/" target="_blank">Website</a>
+            <a href="https://play.google.com/store/apps/details?id=nz.co.colorex.app" target="_blank">Android</a>
+          </div>
+        </div>
+
+        <div class="project-card">
+          <h3>Super Kids</h3>
+          <p>Educational mobile application designed for children.</p>
+          <div class="project-links">
+            <a href="https://apps.apple.com/in/app/super-kids-app/id1637870436" target="_blank">iOS</a>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="container">
+      <h2 class="section-title">Work Experience</h2>
+      <div class="experience">
+        <div class="timeline-item">
+          <h3>Full-Time Freelancer</h3>
+          <p><strong>2024 – Present</strong></p>
+          <p>Delivering end-to-end Flutter solutions for global clients.</p>
+        </div>
+        <div class="timeline-item">
+          <h3>Senior Flutter Developer – Natrix Software Pvt. Ltd.</h3>
+          <p><strong>2018 – 2024</strong></p>
+          <p>Developed and deployed multiple production-ready mobile applications.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="container">
+      <h2 class="section-title">Education</h2>
+      <div class="education">
+        <div class="timeline-item">
+          <h3>Master of Computer Application (MCA)</h3>
+          <p>JGI University – 2019</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="container">
+      <p>© 2025 Harsh Navapara · Senior Flutter Developer</p>
+      <p>Email: <a href="mailto:dev.harsh2502@gmail.com">dev.harsh2502@gmail.com</a></p>
+    </div>
+  </footer>
+
+</body>
+</html>
