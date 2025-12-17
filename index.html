@@ -252,12 +252,43 @@
       section { padding: 85px 0; }
       .section-title { font-size: 2.2rem; }
     }
+  
+    /* ================= ANIMATIONS ================= */
+    .reveal {
+      opacity: 0;
+      transform: translateY(40px);
+      transition: all 0.9s ease;
+    }
+
+    .reveal.active {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .fade-in {
+      animation: fadeIn 1.2s ease forwards;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .float {
+      animation: float 6s ease-in-out infinite;
+    }
+
+    @keyframes float {
+      0% { transform: translateY(0); }
+      50% { transform: translateY(-12px); }
+      100% { transform: translateY(0); }
+    }
   </style>
 </head>
 <body>
 
 <header>
-  <div class="container hero-content">
+  <div class="container hero-content fade-in">
     <span class="hero-badge">Senior Flutter Developer</span>
     <h1>Hi, I'm <span>Harsh Navapara</span></h1>
     <p>
@@ -273,7 +304,7 @@
   </div>
 </header>
 
-<section class="about">
+<section class="about reveal">
   <div class="container">
     <h2 class="section-title">About <span>Me</span></h2>
     <div class="glass">
@@ -287,7 +318,7 @@
   </div>
 </section>
 
-<section>
+<section class="reveal">
   <div class="container">
     <h2 class="section-title">Why <span>Work With Me?</span></h2>
     <div class="skills-grid">
@@ -299,7 +330,7 @@
   </div>
 </section>
 
-<section>
+<section class="reveal">
   <div class="container">
     <h2 class="section-title">My <span>Skills</span></h2>
     <div class="skills-grid">
@@ -311,7 +342,7 @@
   </div>
 </section>
 
-<section id="projects">
+<section id="projects" class="reveal">
   <div class="container">
     <h2 class="section-title">Featured <span>Projects</span></h2>
     <div class="projects">
@@ -323,7 +354,7 @@
   </div>
 </section>
 
-<section>
+<section class="reveal">
   <div class="container">
     <h2 class="section-title">Experience & <span>Education</span></h2>
     <div class="timeline">
@@ -340,6 +371,20 @@
     <p><a href="mailto:dev.harsh2502@gmail.com">dev.harsh2502@gmail.com</a></p>
   </div>
 </footer>
+
+<script>
+  const reveals = document.querySelectorAll('.reveal');
+
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('active');
+      }
+    });
+  }, { threshold: 0.15 });
+
+  reveals.forEach(el => observer.observe(el));
+</script>
 
 </body>
 </html>
