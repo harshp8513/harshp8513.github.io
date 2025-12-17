@@ -4,14 +4,20 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Harsh Navapara | Senior Flutter Developer</title>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+  <!-- Google Font -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
   <style>
     :root {
-      --primary: #4f46e5;
-      --secondary: #0f172a;
-      --light: #f8fafc;
-      --gray: #64748b;
-      --card: #ffffff;
+      --primary: #6366f1;      /* Indigo */
+      --primary-dark: #4f46e5;
+      --bg-dark: #0f172a;      /* Dark slate */
+      --bg-light: #f8fafc;
+      --text-dark: #020617;
+      --text-light: #94a3b8;
+      --card-bg: #ffffff;
+      --border: #e5e7eb;
     }
 
     * {
@@ -20,16 +26,24 @@
       box-sizing: border-box;
     }
 
+    html {
+      scroll-behavior: smooth;
+    }
+
     body {
-      font-family: 'Poppins', sans-serif;
-      background: var(--light);
-      color: var(--secondary);
+      font-family: 'Inter', sans-serif;
+      background: var(--bg-light);
+      color: var(--text-dark);
       line-height: 1.6;
     }
 
     a {
-      color: var(--primary);
       text-decoration: none;
+      color: inherit;
+    }
+
+    img {
+      max-width: 100%;
     }
 
     .container {
@@ -38,260 +52,373 @@
       margin: auto;
     }
 
+    /* ================= HEADER ================= */
     header {
-      background: linear-gradient(135deg, #4f46e5, #6366f1);
+      background: linear-gradient(135deg, var(--bg-dark), #020617);
       color: #fff;
-      padding: 80px 0;
+      padding: 90px 0 110px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    header::after {
+      content: "";
+      position: absolute;
+      width: 600px;
+      height: 600px;
+      background: radial-gradient(circle, rgba(99,102,241,0.35), transparent 60%);
+      top: -200px;
+      right: -200px;
     }
 
     header h1 {
-      font-size: 2.8rem;
-      font-weight: 700;
+      font-size: 3.2rem;
+      font-weight: 800;
+      margin-bottom: 10px;
+    }
+
+    header h1 span {
+      color: var(--primary);
     }
 
     header p {
-      margin-top: 10px;
-      font-size: 1.1rem;
       max-width: 700px;
+      font-size: 1.1rem;
+      color: #c7d2fe;
     }
 
+    .hero-actions {
+      margin-top: 30px;
+      display: flex;
+      gap: 15px;
+      flex-wrap: wrap;
+    }
+
+    .btn {
+      padding: 12px 26px;
+      border-radius: 999px;
+      font-weight: 600;
+      transition: all 0.3s ease;
+      display: inline-block;
+    }
+
+    .btn-primary {
+      background: var(--primary);
+      color: #fff;
+    }
+
+    .btn-primary:hover {
+      background: var(--primary-dark);
+      transform: translateY(-2px);
+      box-shadow: 0 10px 25px rgba(99,102,241,0.4);
+    }
+
+    .btn-outline {
+      border: 1px solid #c7d2fe;
+      color: #c7d2fe;
+    }
+
+    .btn-outline:hover {
+      background: #1e293b;
+    }
+
+    /* ================= SECTION ================= */
     section {
-      padding: 70px 0;
+      padding: 90px 0;
     }
 
     .section-title {
-      font-size: 2rem;
-      margin-bottom: 40px;
       text-align: center;
+      font-size: 2.3rem;
+      font-weight: 800;
+      margin-bottom: 50px;
       position: relative;
     }
 
     .section-title::after {
-      content: '';
-      width: 60px;
+      content: "";
+      width: 70px;
       height: 4px;
       background: var(--primary);
       display: block;
-      margin: 10px auto 0;
-      border-radius: 2px;
+      margin: 14px auto 0;
+      border-radius: 5px;
     }
 
+    /* ================= ABOUT ================= */
     .about p {
       max-width: 900px;
       margin: auto;
       text-align: center;
-      color: var(--gray);
+      font-size: 1.05rem;
+      color: #475569;
     }
 
+    /* ================= SKILLS ================= */
     .skills-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-      gap: 20px;
-    }
-
-    .skill-card {
-      background: var(--card);
-      padding: 25px;
-      border-radius: 12px;
-      box-shadow: 0 10px 25px rgba(0,0,0,0.05);
-    }
-
-    .skill-card h3 {
-      margin-bottom: 10px;
-      color: var(--primary);
-    }
-
-    .projects {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
       gap: 25px;
     }
 
+    .skill-card {
+      background: var(--card-bg);
+      border-radius: 18px;
+      padding: 30px;
+      border: 1px solid var(--border);
+      transition: all 0.35s ease;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .skill-card::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(135deg, rgba(99,102,241,0.08), transparent);
+      opacity: 0;
+      transition: opacity 0.35s ease;
+    }
+
+    .skill-card:hover::before {
+      opacity: 1;
+    }
+
+    .skill-card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 25px 50px rgba(0,0,0,0.12);
+      border-color: var(--primary);
+    }
+
+    .skill-card h3 {
+      color: var(--primary);
+      margin-bottom: 10px;
+    }
+
+    /* ================= PROJECTS ================= */
+    .projects {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 30px;
+    }
+
     .project-card {
-      background: var(--card);
-      padding: 25px;
-      border-radius: 14px;
-      box-shadow: 0 12px 30px rgba(0,0,0,0.06);
+      background: var(--card-bg);
+      border-radius: 20px;
+      padding: 30px;
+      border: 1px solid var(--border);
+      transition: all 0.35s ease;
       display: flex;
       flex-direction: column;
       justify-content: space-between;
     }
 
+    .project-card:hover {
+      transform: translateY(-10px) scale(1.01);
+      box-shadow: 0 30px 60px rgba(0,0,0,0.15);
+      border-color: var(--primary);
+    }
+
     .project-card h3 {
       margin-bottom: 10px;
-      color: var(--secondary);
     }
 
     .project-card p {
-      color: var(--gray);
+      color: #475569;
       font-size: 0.95rem;
     }
 
     .project-links {
-      margin-top: 15px;
+      margin-top: 20px;
     }
 
     .project-links a {
-      margin-right: 10px;
-      font-size: 0.9rem;
+      font-size: 0.85rem;
+      padding: 8px 14px;
+      border-radius: 999px;
+      background: #eef2ff;
+      color: var(--primary-dark);
+      margin-right: 8px;
+      transition: all 0.25s ease;
     }
 
-    .experience, .education {
+    .project-links a:hover {
+      background: var(--primary);
+      color: #fff;
+    }
+
+    /* ================= TIMELINE ================= */
+    .timeline {
       max-width: 900px;
       margin: auto;
+      display: grid;
+      gap: 25px;
     }
 
     .timeline-item {
-      background: var(--card);
-      padding: 25px;
-      border-radius: 12px;
-      box-shadow: 0 10px 25px rgba(0,0,0,0.05);
-      margin-bottom: 20px;
+      background: var(--card-bg);
+      padding: 30px;
+      border-radius: 18px;
+      border: 1px solid var(--border);
+      transition: all 0.3s ease;
     }
 
+    .timeline-item:hover {
+      transform: translateX(6px);
+      border-color: var(--primary);
+    }
+
+    /* ================= FOOTER ================= */
     footer {
-      background: #020617;
-      color: #cbd5f5;
+      background: var(--bg-dark);
+      color: var(--text-light);
       text-align: center;
-      padding: 40px 0;
+      padding: 50px 0;
     }
 
     footer a {
-      color: #a5b4fc;
+      color: #c7d2fe;
     }
 
+    /* ================= RESPONSIVE ================= */
     @media (max-width: 768px) {
       header h1 {
-        font-size: 2.2rem;
+        font-size: 2.4rem;
+      }
+      .section-title {
+        font-size: 2rem;
       }
     }
   </style>
 </head>
 <body>
 
-  <header>
-    <div class="container">
-      <h1>Harsh Navapara</h1>
-      <p>Senior Flutter Developer with 6+ years of experience building scalable, high-quality mobile applications for iOS and Android.</p>
-      <p>Email: <a href="mailto:dev.harsh2502@gmail.com" style="color:#fff; text-decoration:underline;">dev.harsh2502@gmail.com</a></p>
-    </div>
-  </header>
+<header>
+  <div class="container">
+    <h1>Harsh <span>Navapara</span></h1>
+    <p>Senior Flutter Developer with 6+ years of experience building scalable, pixel‑perfect mobile applications for iOS and Android.</p>
 
-  <section class="about">
-    <div class="container">
-      <h2 class="section-title">About Me</h2>
-      <p>
-        I am a Senior Flutter Developer specializing in creating pixel-perfect, high-performance mobile applications.
-        I have extensive experience with Flutter, Dart, Firebase, REST APIs, and modern state management solutions.
-        Currently working as a full-time freelancer and open to opportunities across all time zones.
-      </p>
+    <div class="hero-actions">
+      <a href="#projects" class="btn btn-primary">View Projects</a>
+      <a href="mailto:dev.harsh2502@gmail.com" class="btn btn-outline">Contact Me</a>
     </div>
-  </section>
+  </div>
+</header>
 
-  <section>
-    <div class="container">
-      <h2 class="section-title">Skills & Expertise</h2>
-      <div class="skills-grid">
-        <div class="skill-card">
-          <h3>Mobile Development</h3>
-          <p>Flutter, Dart, Xamarin (iOS, Android), MVVM Architecture</p>
+<section class="about">
+  <div class="container">
+    <h2 class="section-title">About Me</h2>
+    <p>
+      I’m a Senior Flutter Developer currently working as a full‑time freelancer.
+      I specialize in crafting clean architecture, smooth UI animations, and
+      production‑ready applications using Flutter, Dart, Firebase, and REST APIs.
+      I collaborate comfortably across time zones and focus strongly on performance and user experience.
+    </p>
+  </div>
+</section>
+
+<section>
+  <div class="container">
+    <h2 class="section-title">Skills & Expertise</h2>
+    <div class="skills-grid">
+      <div class="skill-card">
+        <h3>Mobile Development</h3>
+        <p>Flutter, Dart, Xamarin (iOS & Android), MVVM Architecture</p>
+      </div>
+      <div class="skill-card">
+        <h3>State Management</h3>
+        <p>Provider, Riverpod, Flutter Hooks, GetX</p>
+      </div>
+      <div class="skill-card">
+        <h3>Backend & APIs</h3>
+        <p>REST APIs, Firebase, Firestore, ASP.NET Core</p>
+      </div>
+      <div class="skill-card">
+        <h3>Tools & Platforms</h3>
+        <p>Git, GitHub, Bitbucket, JIRA, Trello, Postman</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="projects">
+  <div class="container">
+    <h2 class="section-title">Featured Projects</h2>
+    <div class="projects">
+      <div class="project-card">
+        <h3>Mazoom Scanner App</h3>
+        <p>Electronic invitation app with RSVP, QR codes, and WhatsApp sharing.</p>
+        <div class="project-links">
+          <a href="https://apps.apple.com/sa/app/mazoom-invitations/id1604235156" target="_blank">iOS</a>
+          <a href="https://play.google.com/store/apps/details?id=com.app.mazoom&hl=en_US" target="_blank">Android</a>
         </div>
-        <div class="skill-card">
-          <h3>State Management</h3>
-          <p>Provider, Riverpod, Flutter Hooks, GetX</p>
+      </div>
+
+      <div class="project-card">
+        <h3>Here Is What I Like</h3>
+        <p>Social discovery app available on App Store and Google Play.</p>
+        <div class="project-links">
+          <a href="https://apps.apple.com/in/app/here-is-what-i-like/id6446192665" target="_blank">iOS</a>
+          <a href="https://play.google.com/store/apps/details?id=com.hivil.hivil&hl=en&gl=US" target="_blank">Android</a>
         </div>
-        <div class="skill-card">
-          <h3>Backend & APIs</h3>
-          <p>REST APIs, Firebase, Firestore, ASP.NET Core</p>
+      </div>
+
+      <div class="project-card">
+        <h3>Colorex App</h3>
+        <p>eCommerce app for trade‑quality painting and construction products.</p>
+        <div class="project-links">
+          <a href="https://colorex.co.nz/" target="_blank">Website</a>
+          <a href="https://play.google.com/store/apps/details?id=nz.co.colorex.app" target="_blank">Android</a>
         </div>
-        <div class="skill-card">
-          <h3>Tools & Platforms</h3>
-          <p>Git, GitHub, Bitbucket, Trello, JIRA, Postman</p>
+      </div>
+
+      <div class="project-card">
+        <h3>Super Kids</h3>
+        <p>Educational mobile app designed for children.</p>
+        <div class="project-links">
+          <a href="https://apps.apple.com/in/app/super-kids-app/id1637870436" target="_blank">iOS</a>
         </div>
       </div>
     </div>
-  </section>
+  </div>
+</section>
 
-  <section>
-    <div class="container">
-      <h2 class="section-title">Featured Projects</h2>
-      <div class="projects">
-
-        <div class="project-card">
-          <h3>Mazoom Scanner App</h3>
-          <p>Electronic invitation app with RSVP, QR codes, and WhatsApp sharing.</p>
-          <div class="project-links">
-            <a href="https://apps.apple.com/sa/app/mazoom-invitations/id1604235156" target="_blank">iOS</a>
-            <a href="https://play.google.com/store/apps/details?id=com.app.mazoom&hl=en_US" target="_blank">Android</a>
-          </div>
-        </div>
-
-        <div class="project-card">
-          <h3>Here Is What I Like</h3>
-          <p>Social discovery app available on both App Store and Play Store.</p>
-          <div class="project-links">
-            <a href="https://apps.apple.com/in/app/here-is-what-i-like/id6446192665" target="_blank">iOS</a>
-            <a href="https://play.google.com/store/apps/details?id=com.hivil.hivil&hl=en&gl=US" target="_blank">Android</a>
-          </div>
-        </div>
-
-        <div class="project-card">
-          <h3>Colorex App</h3>
-          <p>eCommerce app for trade-quality construction and painting products.</p>
-          <div class="project-links">
-            <a href="https://colorex.co.nz/" target="_blank">Website</a>
-            <a href="https://play.google.com/store/apps/details?id=nz.co.colorex.app" target="_blank">Android</a>
-          </div>
-        </div>
-
-        <div class="project-card">
-          <h3>Super Kids</h3>
-          <p>Educational mobile application designed for children.</p>
-          <div class="project-links">
-            <a href="https://apps.apple.com/in/app/super-kids-app/id1637870436" target="_blank">iOS</a>
-          </div>
-        </div>
-
+<section>
+  <div class="container">
+    <h2 class="section-title">Experience</h2>
+    <div class="timeline">
+      <div class="timeline-item">
+        <h3>Full‑Time Freelancer</h3>
+        <p><strong>2024 – Present</strong></p>
+        <p>Delivering scalable Flutter applications for global clients.</p>
+      </div>
+      <div class="timeline-item">
+        <h3>Senior Flutter Developer – Natrix Software Pvt. Ltd.</h3>
+        <p><strong>2018 – 2024</strong></p>
+        <p>Built and deployed multiple production‑grade mobile applications.</p>
       </div>
     </div>
-  </section>
+  </div>
+</section>
 
-  <section>
-    <div class="container">
-      <h2 class="section-title">Work Experience</h2>
-      <div class="experience">
-        <div class="timeline-item">
-          <h3>Full-Time Freelancer</h3>
-          <p><strong>2024 – Present</strong></p>
-          <p>Delivering end-to-end Flutter solutions for global clients.</p>
-        </div>
-        <div class="timeline-item">
-          <h3>Senior Flutter Developer – Natrix Software Pvt. Ltd.</h3>
-          <p><strong>2018 – 2024</strong></p>
-          <p>Developed and deployed multiple production-ready mobile applications.</p>
-        </div>
+<section>
+  <div class="container">
+    <h2 class="section-title">Education</h2>
+    <div class="timeline">
+      <div class="timeline-item">
+        <h3>Master of Computer Application (MCA)</h3>
+        <p>JGI University – 2019</p>
       </div>
     </div>
-  </section>
+  </div>
+</section>
 
-  <section>
-    <div class="container">
-      <h2 class="section-title">Education</h2>
-      <div class="education">
-        <div class="timeline-item">
-          <h3>Master of Computer Application (MCA)</h3>
-          <p>JGI University – 2019</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <footer>
-    <div class="container">
-      <p>© 2025 Harsh Navapara · Senior Flutter Developer</p>
-      <p>Email: <a href="mailto:dev.harsh2502@gmail.com">dev.harsh2502@gmail.com</a></p>
-    </div>
-  </footer>
+<footer>
+  <div class="container">
+    <p>© 2025 Harsh Navapara · Senior Flutter Developer</p>
+    <p>Email: <a href="mailto:dev.harsh2502@gmail.com">dev.harsh2502@gmail.com</a></p>
+  </div>
+</footer>
 
 </body>
 </html>
